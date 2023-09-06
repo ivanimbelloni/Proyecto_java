@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: "PT Sans", sans-serif;
+}
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-width: 320px;
+    padding: 20px;
+}
+
+.tittle{
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+    border-radius: 35px;
+
+}
+.tittle h1{
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+}
+

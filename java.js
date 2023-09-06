@@ -1,22 +1,36 @@
-function agregarProducto (item, precio){
-    if (precio > 1200 ){
-        let precioDescuento = precio*0.9
-        alert("Tienes un descuento del 10%, el nuevo precio del "+ item+ " seria de "+ precioDescuento)
-    }
-    else{
-        alert("El precio de "+ item +  " es de "+precio)
+class materia {
+    constructor(nombreMateria, profesor, aula) {
+        this.nombreMateria = nombreMateria;
+        this.profesor = profesor;
+        this.aula = aula
     }
 }
 
-let item = prompt("¿Que producto estas comprando?")
-alert("Si el producto supera los 1200 tienes un descuento del 10%")
-let precio = prompt("¿Que precio tiene ")
+function agregarMateria() {
+    let nombre = prompt("¿Que materia es?")
+        let profe = prompt("¿Que profesor es")
+        let aula = prompt("¿Que aula es")
+        const mate = new materia(nombre, profe, aula)
+        listMaterias.push(mate)
+    }
+function menu() {
+    agregarMateria()
+    console.log(listMaterias)
+    alert("La cantidad de materias en la lista es " + listMaterias.length)
+}
 
-agregarProducto (item, precio)
+let listMaterias = []
 
+alert("Puedes agregar 5 materias")
+for (let step = 0; step < 5; step++) {
+    respuesta = prompt("quieres agrega una materia escribe si")
+    if (respuesta=="si"){
+        menu( )
+    }
+    else{
+        break
+    }
+}
 
-
-
-
-
+console.log(listMaterias)
 
