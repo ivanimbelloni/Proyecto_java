@@ -4,6 +4,7 @@ const btnMenu = document.getElementById("btn-menu")
 const btnCerrar = document.getElementById("btn-close")
 const btnAgregar = document.getElementById("btn-submit")
 const btnFilters = document.getElementById("btn-filter")
+//btn mode
 
 //botones de filtros
 const filtApellido = document.getElementById("filter-apellido")
@@ -22,7 +23,7 @@ const contMateria = document.getElementById("cant-materias")
 const menuAgregar = document.getElementById("menuAgregar")
 const alumnosEncontrados = document.getElementById("items-encontrados")
 const alumnoCard = document.getElementsByClassName(".alumno-card")
-//datos
+//modo
 
 //constructor  
 class alumno {
@@ -45,17 +46,17 @@ function cardsAlumnos(listaAlumnos){
     blockCard.innerHTML = ` `
     for(const alumn of listaAlumnos){
             blockCard.innerHTML += `
-            <div class="alumno-card">
+            <div class="alumno-card dark-secondary">
                 <div class="foto">
                     <img src="  perfil.jpg" alt="foto perfil">
                 </div>
-                <div class="datos-alumno">
+                <div class="datos-alumno" >
                     <h3>Nombre Completo:</h3>
-                    <p>${alumn.nombre} ${alumn.apellido}</p>
+                    <p class="dark-primary ">${alumn.nombre} ${alumn.apellido}</p>
                     <h3>Nro Documento: </h3>
-                    <p>${alumn.documento}</p>
+                    <p class="dark-primary ">${alumn.documento}</p>
                     <h3>Año de Ingreso:  </h3>
-                    <p>${alumn.ingreso}</p>
+                    <p class="dark-primary ">${alumn.ingreso}</p>
                 </div>
             </div>
             `
@@ -133,24 +134,36 @@ function crearObjeto (nombre,apellido,documento,ingreso,){
     documento = documento.value
     ingreso = ingreso.value
     const nuevoAlumno = new alumno (nombre,apellido,documento, ingreso)
-    listaAlumnos.push(nuevoAlumno)
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'El alumno ha sido agregado correctamente',
-        showConfirmButton: false,
-        timer: 2000
-    })
-    alumnos (listaAlumnos)
-    cardsAlumnos(listaAlumnos)
-    nombre = " "
-    apellido= " "
-    documento = " "
-    ingreso = " "
+    if( documento.length <8 || documento.length > 8 ){
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Faltan datos o son erroneos',
+            showConfirmButton: false,
+            timer: 2000
+        })
+    }
+    else{
+        listaAlumnos.push(nuevoAlumno)  
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'El alumno ha sido agregado con exito',
+            showConfirmButton: false,
+            timer: 2000
+        })
+        nombre.value = ""
+        apellido.value = ""
+        ingreso.value = ""
+        documento.value = ""
+        ocultarMenu()
+        alumnos (listaAlumnos)
+        cardsAlumnos(listaAlumnos)
+        console.log(listaAlumnos)
+    }
 }
 btnAgregar.addEventListener("click",()=>{
     crearObjeto(nombre,apellido,documento,ingreso)
-    ocultarMenu()
 })
 //ejecutados
 cardsAlumnos(listaAlumnos)

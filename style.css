@@ -4,7 +4,6 @@
     margin: 0px;
     font-family: "PT Sans", sans-serif;
 }
-
 html {
     height: 100%;
 }
@@ -40,12 +39,41 @@ footer{
     text-decoration: underline;
     font-weight: bold;
 }
+#mode{
+    display: flex;
+    justify-content: right;
+    width: 70%;
+}
+#mode .svg{
+    position: relative;
+    align-content: center;
+    background-color: #d8f8e1;
+    padding: 2px;
+    border-radius: 20px;
+}
+#mode:hover{
+    cursor: pointer;
+}
+.light-primary{
+    background-color: #b0c2f2;
+    color: #293145;
+}
+.dark-primary{
+    background-color: #293145;
+    color: #b0c2f2;
+}
+.light-secondary{
+    background-color: #84b6f4;
+    color: #b0c2f2;
+}
+.dark-secondary{
+    background-color: #415e82;
+}
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #b0c2f2;
     height: auto;
     padding: 20px;
 }
@@ -74,9 +102,11 @@ main {
 }
 .agregar_activate{
     z-index: 3;
-    width: auto;
-    left:32%;
-    top: 30%;
+    min-width: 262px;
+    right:45%   ;
+    top: 25%;
+    left: 45%;
+    bottom:auto;
     position: absolute;
     margin: auto;
     padding: 20px;
@@ -84,7 +114,6 @@ main {
     flex-direction: column;
     justify-content: space-between;   
     align-items: center;
-    background-color: #84b6f4;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .formulario{
@@ -95,10 +124,8 @@ main {
     justify-content: space-between;   
     align-items: center;
     gap: 5px;
-    background-color: #84b6f4;
 }
 .formulario input{
-    background-color: #b0c2f2;
     border: black;
     padding: 0.8px;
     border-radius: 10px;
@@ -138,7 +165,6 @@ margin: 0;
     left: 225px;
 }
 .formulario #btn-submit{
-    background-color: #d8f8e1;
     font-size: 1.2rem;
     padding: 3px;
     border-radius: 25px;
@@ -147,6 +173,7 @@ margin: 0;
 }
 .formulario #btn-submit:hover{
     background-color:#d8f8e1 ;
+    color: #293145;
     cursor: pointer;
 }
     
@@ -183,7 +210,6 @@ margin: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background-color: #84b6f4;
     width: 280px;
     padding: 10px;
     justify-content: center;
@@ -198,18 +224,17 @@ margin: 0;
 }
 .alumno-card .datos-alumno h3{
     font-size: 1.2rem;
+    text-align: center;
     height: auto;
 }
 .alumno-card .datos-alumno p{
     font-size: 1rem;
     text-align: center;
-    background-color: #d8f8e1;
     border-radius: 25px;
     padding: 1px;
 }
 /*botones*/
 #btn-filter{
-    background-color: #84b6f4;
     font-weight: 500;
     padding: 5px;
     border-color: black;
@@ -219,7 +244,6 @@ margin: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 #btn-menu{
-    background-color: #84b6f4;
     border-radius: 10px;
     font-weight: 500;
     padding: 5px;
@@ -233,9 +257,8 @@ margin: 0;
 #btn-close{
     display: block;
     position: absolute;
-    left: 214px;
+    right: 10%;
     top: 10px;
-    background-color: #b0c2f2;
     text-align: center;
     border-radius: 25px;
     width: 20px;

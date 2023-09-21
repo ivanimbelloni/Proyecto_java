@@ -9,44 +9,43 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
+    <header class="dark-secondary">
         <div class="tittle">
             <h1>Universidad del Parana</h1>
         </div>
     </header>
-    <div id="menuAgregar" class="agregar_ocultar">
+    <div id="menuAgregar" class="agregar_ocultar dark-secondary" >
         <form action="" method="get">
             <div class="formulario">                
-                <span id="btn-close"> X </span>
+                <span class="dark-primary" id="btn-close"> X </span>
                 <div class="form">
                     <label for="nombre-alumno"> Nombre completo </label>
-                    <input id="nombre-alumno" type="text" placeholder="Nombre alumno"> 
+                    <input  class="dark-primary" id="nombre-alumno" type="text" placeholder="Nombre alumno"> 
                 </div>
                 <div class="form">
                     <label for="apellido-alumno"> Apellido  </label>
-                    <input id="apellido-alumno" type="text" placeholder="Apellido alumno">
+                    <input class="dark-primary" id="apellido-alumno" type="text" placeholder="Apellido alumno">
                 </div>
                 <div class="form">
                     <label for="dni-alumno"> Nro de documento (sin punto)  </label>
-                    <input id="dni-alumno" type="number"  placeholder="dni alumno" maxlength="8" >
+                    <input class="dark-primary" id="dni-alumno" type="number"  placeholder="dni alumno" maxlength="8" >
                     <p id="alert-doc" class="alerta-doc"></p>
                 </div>
                 <div class="form">
                     <label for="ingreso-alumno"> Año de ingreso </label>
-                    <input id="ingreso-alumno" type="number" placeholder="2023." maxlength="4">
+                    <input class="dark-primary" id="ingreso-alumno" type="number" placeholder="2023." maxlength="4">
                     <p id="alert-ing" class="alerta-ing"></p>
                 </div>    
-                <h3 type="submit" id="btn-submit"> Agregar Alumno </h3>
+                <h3  class="dark-primary" type="submit" id="btn-submit" class="dark-secondary"> Agregar Alumno </h3>
             </div>                
         </form>
     </div>
-    <main>     
-        <h3 id="btn-menu">Agregar alumno</h3>
-        
+    <main id="main" class="dark-primary">     
+        <h3 id="btn-menu" class="dark-secondary">Agregar alumno</h3>
         <div class="block-filters">
             <p id="items-encontrados">Se han encontrado 0 estudiantes</p>
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn  dropdown-toggle dark-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ordenar por 
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -61,7 +60,7 @@
 
         </div>
     </main>
-    <footer>
+    <footer class="dark-secondary" >
         <h5>Universidad del Parana</h5>
         <h6>Derechos reservados</h6>
     </footer>
