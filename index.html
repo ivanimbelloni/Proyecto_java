@@ -9,15 +9,19 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header class="dark-secondary">
+    <header id="header" class="dark-secondary">
         <div class="tittle">
             <h1>Universidad del Parana</h1>
         </div>
+        <div id="btn-modo" class="dark-primary dark-hover">
+            <img id="svg-light"style="display: block; " src="light_mode_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+            <img id="svg-dark" style="display: none; " src="dark_mode_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        </div>
     </header>
-    <div id="menuAgregar" class="agregar_ocultar dark-secondary" >
+    <div id="menuAgregar" class="agregar_ocultar dark-secondary " >
         <form action="" method="get">
             <div class="formulario">                
-                <span class="dark-primary" id="btn-close"> X </span>
+                <span class="dark-primary dark-hover" id="btn-close"> X </span>
                 <div class="form">
                     <label for="nombre-alumno"> Nombre completo </label>
                     <input  class="dark-primary" id="nombre-alumno" type="text" placeholder="Nombre alumno"> 
@@ -36,21 +40,21 @@
                     <input class="dark-primary" id="ingreso-alumno" type="number" placeholder="2023." maxlength="4">
                     <p id="alert-ing" class="alerta-ing"></p>
                 </div>    
-                <h3  class="dark-primary" type="submit" id="btn-submit" class="dark-secondary"> Agregar Alumno </h3>
+                <h3 type="submit" id="btn-submit" class="dark-hover dark-primary"> Agregar Alumno </h3>
             </div>                
         </form>
     </div>
     <main id="main" class="dark-primary">     
-        <h3 id="btn-menu" class="dark-secondary">Agregar alumno</h3>
+        <h3 id="btn-menu" class="dark-secondary dark-hover">Agregar alumno</h3>
         <div class="block-filters">
             <p id="items-encontrados">Se han encontrado 0 estudiantes</p>
             <div class="dropdown">
-                <button class="btn  dropdown-toggle dark-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn  dropdown-toggle dark-secondary dark-hover" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Ordenar por 
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" id="filter-apellido">Apellido A/Z</a>
-                    <a class="dropdown-item" id="filter-ingreso">Año Ingreso</a>
+                <div class="dropdown-menu dark-secondary " aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item dark-hover" id="filter-apellido">Apellido A/Z</a>
+                    <a class="dropdown-item dark-hover" id="filter-ingreso">Año Ingreso</a>
                 </div>
             </div>
             
@@ -60,7 +64,7 @@
 
         </div>
     </main>
-    <footer class="dark-secondary" >
+    <footer id="footer" class="dark-secondary" >
         <h5>Universidad del Parana</h5>
         <h6>Derechos reservados</h6>
     </footer>

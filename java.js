@@ -24,7 +24,42 @@ const menuAgregar = document.getElementById("menuAgregar")
 const alumnosEncontrados = document.getElementById("items-encontrados")
 const alumnoCard = document.getElementsByClassName(".alumno-card")
 //modo
+const principal = document.getElementById("main")
+const bajo = document.getElementById("footer")
+const arriba = document.getElementById("header")
+const btnMode = document.getElementById("btn-modo");
+const svgDark = document.getElementById("svg-dark")
+const svgLight = document.getElementById("svg-light")
+//boton eventos
+btnMode.onclick = () => {
+    if(localStorage.getItem('mode') == 'dark'){
+        lightMode();
+    }else{
+        darkMode();
+    }
+}
 
+function darkMode(){
+    principal.classList.replace('light-primary','dark-primary')
+    bajo.classList.replace('light-secondary','dark-secondary')
+    arriba.classList.replace('light-secondary','dark-secondary')
+    btnMode.classList.replace('light-primary','dark-primary')
+    btnMode.classList.replace('light-hover','dark-hover')
+    svgLight.style.display = "block"
+    svgDark.style.display = "none"
+    localStorage.setItem('mode','dark');
+}
+
+function lightMode(){
+    principal.classList.replace('dark-primary','light-primary');
+    bajo.classList.replace('dark-secondary','light-secondary');
+    arriba.classList.replace('dark-secondary','light-secondary');
+    btnMode.classList.replace('dark-primary','light-primary');
+    btnMode.classList.replace('dark-hover','light-hover');
+    svgLight.style.display = "none"
+    svgDark.style.display = "block"
+    localStorage.setItem('mode','light');
+}
 //constructor  
 class alumno {
     constructor(nombre, apellido, documento, ingreso) {

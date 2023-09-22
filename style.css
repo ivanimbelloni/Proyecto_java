@@ -39,19 +39,13 @@ footer{
     text-decoration: underline;
     font-weight: bold;
 }
-#mode{
-    display: flex;
-    justify-content: right;
-    width: 70%;
-}
-#mode .svg{
-    position: relative;
-    align-content: center;
-    background-color: #d8f8e1;
-    padding: 2px;
+#btn-modo{
+    position: absolute;
+    left: 90%;
+    padding: 5px;
     border-radius: 20px;
 }
-#mode:hover{
+#btn-modo:hover{
     cursor: pointer;
 }
 .light-primary{
@@ -64,10 +58,18 @@ footer{
 }
 .light-secondary{
     background-color: #84b6f4;
-    color: #b0c2f2;
+    color: #292929;
 }
 .dark-secondary{
     background-color: #415e82;
+}
+.dark-hover:hover{
+    background-color: #b0c2f2;
+    color: #293145;
+}
+.light-hover:hover{
+    background-color: #292929;
+    color: #293145;
 }
 main {
     display: flex;
@@ -172,8 +174,6 @@ margin: 0;
     margin-top:5px; 
 }
 .formulario #btn-submit:hover{
-    background-color:#d8f8e1 ;
-    color: #293145;
     cursor: pointer;
 }
     
@@ -251,7 +251,6 @@ margin: 0;
 }
 #btn-menu:hover{
     cursor: pointer;
-    background-color: #d8f8e1;
     transition: all 0.8s;
 }
 #btn-close{
@@ -265,17 +264,17 @@ margin: 0;
 }
 #btn-close:hover{
     cursor: pointer;
-    background-color: #ff6c3e;
 }
 .btn-secondary{
     background-color: #84b6f4;
     color: black;
 }
 .btn-secondary:hover{
-    background-color: #d8f8e1;
     color: black;
 }
 .dropdown-item:hover{
     cursor: pointer;
-    background-color: #b0c2f2;
+}
+.btn{
+    color: #b0c2f2;
 }
