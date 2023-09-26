@@ -98,24 +98,42 @@ function cardsAlumnos(listaAlumnos){
     }
 }
 //filters 
-function ordenarApellido (l){
+function ordenarApellidoAZ(){
     listaAlumnos.sort((a,b) =>{
         if (a.apellido < b.apellido) {return -1;}
         if (a.apellido > b.apellido) {return 1;}
+
         return 0;
     })
+    localStorage.setItem('ordenApellido','az');
     cardsAlumnos(listaAlumnos)
     console.log(listaAlumnos)
 }
-function ordenarIngreso (){
+function ordenarApellidoZA (){
+    listaAlumnos.sort((a,b) =>{
+        if (b.apellido < a.apellido) {return -1;}
+        if (b.apellido > a.apellido) {return 1;}
+        return 0;
+    })
+    localStorage.setItem('ordenApellido','za');
+    cardsAlumnos(listaAlumnos)
+    console.log(listaAlumnos)
+}
+function ordenarIngreso(){
     listaAlumnos.sort((a,b) => {
         return b.ingreso - a.ingreso
     })
     cardsAlumnos(listaAlumnos)
     console.log(listaAlumnos)
 }
+
 filtApellido.addEventListener("click", () =>{
-    ordenarApellido(listaAlumnos)
+    if(localStorage.getItem('ordenApellido') == 'za'){
+        ordenarApellidoAZ()
+    }
+    else{
+        ordenarApellidoZA()
+    }
 })
 filtIngreso.addEventListener("click", () =>{
     ordenarIngreso(listaAlumnos)

@@ -105,9 +105,8 @@ main {
 .agregar_activate{
     z-index: 3;
     min-width: 262px;
-    right:45%   ;
+    margin: auto;
     top: 25%;
-    left: 45%;
     bottom:auto;
     position: absolute;
     margin: auto;
