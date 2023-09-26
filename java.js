@@ -98,24 +98,24 @@ function cardsAlumnos(listaAlumnos){
     }
 }
 //filters 
-function ordenarApellidoAZ(){
+function ordenarApellidoZA(){
     listaAlumnos.sort((a,b) =>{
         if (a.apellido < b.apellido) {return -1;}
         if (a.apellido > b.apellido) {return 1;}
 
         return 0;
     })
-    localStorage.setItem('ordenApellido','az');
+    localStorage.setItem('ordenApellido','za');
     cardsAlumnos(listaAlumnos)
     console.log(listaAlumnos)
 }
-function ordenarApellidoZA (){
+function ordenarApellidoAZ (){
     listaAlumnos.sort((a,b) =>{
         if (b.apellido < a.apellido) {return -1;}
         if (b.apellido > a.apellido) {return 1;}
         return 0;
     })
-    localStorage.setItem('ordenApellido','za');
+    localStorage.setItem('ordenApellido','az');
     cardsAlumnos(listaAlumnos)
     console.log(listaAlumnos)
 }
