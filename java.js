@@ -3,8 +3,6 @@
 const btnMenu = document.getElementById("btn-menu")
 const btnCerrar = document.getElementById("btn-close")
 const btnAgregar = document.getElementById("btn-submit")
-const btnFilters = document.getElementById("btn-filter")
-//btn mode
 
 //botones de filtros
 const filtApellido = document.getElementById("filter-apellido")
@@ -19,10 +17,8 @@ const alertaDoc = document.getElementById("alert-doc")
 const alertaIng = document.getElementById("alert-ing")
 //elementos
 const blockCard = document.getElementById("block-alumnos")
-const contMateria = document.getElementById("cant-materias")
 const menuAgregar = document.getElementById("menuAgregar")
 const alumnosEncontrados = document.getElementById("items-encontrados")
-const alumnoCard = document.getElementsByClassName(".alumno-card")
 //modo
 const principal = document.getElementById("main")
 const bajo = document.getElementById("footer")
@@ -30,7 +26,24 @@ const arriba = document.getElementById("header")
 const btnMode = document.getElementById("btn-modo");
 const svgDark = document.getElementById("svg-dark")
 const svgLight = document.getElementById("svg-light")
+
+//json
+
+function obtenerJSON(){
+    const URLJSON='/datos.json';
+    fetch(URLJSON)
+        .then((result) => result.json())
+        .then((datos) => {
+            console.log(datos);
+            const listaAlumnos = datos.alumnos;
+            cardsAlumnos(listaAlumnos)
+            alumnos(datos.alumnos)
+        })
+        .catch((e)=> console.log(e))
+}
+obtenerJSON();
 //boton eventos
+
 btnMode.onclick = () => {
     if(localStorage.getItem('mode') == 'dark'){
         lightMode();
@@ -61,7 +74,7 @@ function lightMode(){
     localStorage.setItem('mode','light');
 }
 //constructor  
-class alumno {
+class Alumno {
     constructor(nombre, apellido, documento, ingreso) {
         this.nombre = nombre
         this.apellido = apellido
@@ -71,15 +84,15 @@ class alumno {
 }
 //funciones
 //encontrados 
-function alumnos (listaAlumnos){
+function alumnos (n){
+    let cantidad = n.length
     alumnosEncontrados.innerText = " "
-    cantidad = listaAlumnos.length
     alumnosEncontrados.innerText = "Se han encontrado "+cantidad+" alumnos";
 }   
 //cards
-function cardsAlumnos(listaAlumnos){
+function cardsAlumnos(list){
     blockCard.innerHTML = ` `
-    for(const alumn of listaAlumnos){
+    for(const alumn of list){
             blockCard.innerHTML += `
             <div class="alumno-card dark-secondary">
                 <div class="foto">
@@ -96,6 +109,7 @@ function cardsAlumnos(listaAlumnos){
             </div>
             `
     }
+
 }
 //filters 
 function ordenarApellidoZA(){
@@ -159,26 +173,27 @@ btnMenu.addEventListener("click" ,() => {
 //formulario 
 documento.onkeyup = () => {
     if(documento.value.length < 8){
-        documento.style.borderColor = "#ff6c3e"     
         alertaDoc.style.display = "flex"
         alertaDoc.innerText = "Debe contener 8 digitos"
         alertaDoc.style.backgroundColor = "#d8f8e1"
+        documento.style.Color = "#293145"     
     }
     else{
         alertaDoc.style.display = "none"
-        documento.style.color = "black"
     }
 }
 ingreso.onkeyup = () => {
     if(ingreso.value < 2000){
         documento.style.borderColor = "#ff6c3e"     
+        documento.style.Color = "#293145"     
+
         alertaIng.style.display = "flex"
         alertaIng.innerText = "Pon un año valido"
         alertaIng.style.backgroundColor = "#d8f8e1"
+        
     }
     else{
         alertaIng.style.display = "none"
-        documento.style.color = "black"
     }
 }
 function crearObjeto (nombre,apellido,documento,ingreso,){
@@ -186,7 +201,7 @@ function crearObjeto (nombre,apellido,documento,ingreso,){
     apellido = apellido.value
     documento = documento.value
     ingreso = ingreso.value
-    const nuevoAlumno = new alumno (nombre,apellido,documento, ingreso)
+    const nuevoAlumno = new Alumno (nombre,apellido,documento, ingreso)
     if( documento.length <8 || documento.length > 8 ){
         Swal.fire({
             position: 'center',
@@ -205,15 +220,19 @@ function crearObjeto (nombre,apellido,documento,ingreso,){
             showConfirmButton: false,
             timer: 2000
         })
-        nombre.value = ""
-        apellido.value = ""
-        ingreso.value = ""
-        documento.value = ""
+
         ocultarMenu()
+        limpiarInputs()
         alumnos (listaAlumnos)
         cardsAlumnos(listaAlumnos)
         console.log(listaAlumnos)
     }
+}
+function limpiarInputs (){
+    nombre.value = ""
+    apellido.value = ""
+    ingreso.value = ""
+    documento.value = ""
 }
 btnAgregar.addEventListener("click",()=>{
     crearObjeto(nombre,apellido,documento,ingreso)
