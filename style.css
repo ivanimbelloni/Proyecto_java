@@ -204,7 +204,7 @@ margin: 0;
 /*cards*/
 #block-alumnos{
     display: grid;
-    grid-auto-columns: repeat(2,minmax(280px));
+    grid-template-columns: 50% 50%;
     gap: 10px   ;
     
 }

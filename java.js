@@ -28,14 +28,14 @@ const svgDark = document.getElementById("svg-dark")
 const svgLight = document.getElementById("svg-light")
 
 //json
-
+let listaAlumnos
 function obtenerJSON(){
     const URLJSON='/datos.json';
     fetch(URLJSON)
         .then((result) => result.json())
         .then((datos) => {
             console.log(datos);
-            const listaAlumnos = datos.alumnos;
+            listaAlumnos = datos.alumnos;
             cardsAlumnos(listaAlumnos)
             alumnos(datos.alumnos)
         })
@@ -112,41 +112,41 @@ function cardsAlumnos(list){
 
 }
 //filters 
-function ordenarApellidoZA(){
-    listaAlumnos.sort((a,b) =>{
+function ordenarApellidoZA(l){
+    l.sort((a,b) =>{
         if (a.apellido < b.apellido) {return -1;}
         if (a.apellido > b.apellido) {return 1;}
 
         return 0;
     })
     localStorage.setItem('ordenApellido','za');
-    cardsAlumnos(listaAlumnos)
-    console.log(listaAlumnos)
+    cardsAlumnos(l)
+    console.log(l)
 }
-function ordenarApellidoAZ (){
-    listaAlumnos.sort((a,b) =>{
+function ordenarApellidoAZ (l){
+    l.sort((a,b) =>{
         if (b.apellido < a.apellido) {return -1;}
         if (b.apellido > a.apellido) {return 1;}
         return 0;
     })
     localStorage.setItem('ordenApellido','az');
-    cardsAlumnos(listaAlumnos)
-    console.log(listaAlumnos)
+    cardsAlumnos(l)
+    console.log(l)
 }
-function ordenarIngreso(){
-    listaAlumnos.sort((a,b) => {
+function ordenarIngreso(l){
+    l.sort((a,b) => {
         return b.ingreso - a.ingreso
     })
-    cardsAlumnos(listaAlumnos)
-    console.log(listaAlumnos)
+    cardsAlumnos(l)
+    console.log(l)
 }
 
 filtApellido.addEventListener("click", () =>{
     if(localStorage.getItem('ordenApellido') == 'za'){
-        ordenarApellidoAZ()
+        ordenarApellidoAZ(listaAlumnos)
     }
     else{
-        ordenarApellidoZA()
+        ordenarApellidoZA(listaAlumnos)
     }
 })
 filtIngreso.addEventListener("click", () =>{
@@ -238,5 +238,3 @@ btnAgregar.addEventListener("click",()=>{
     crearObjeto(nombre,apellido,documento,ingreso)
 })
 //ejecutados
-cardsAlumnos(listaAlumnos)
-alumnos(listaAlumnos)
